@@ -26,6 +26,7 @@ def docopt_cmd(func):
     This decorator is used to simplify the try/except block and pass the result
     of the docopt parsing to the called action.
     """
+
     def fn(self, arg):
         try:
             opt = docopt(fn.__doc__, arg)
@@ -51,8 +52,10 @@ def docopt_cmd(func):
     fn.__dict__.update(func.__dict__)
     return fn
 
+
 class MyInteractive (cmd.Cmd):
-    intro = 'Welcome to Primitive Social A Simple Forum Platform ' + ' (type help for a list of options.)'
+    intro = 'Welcome to Primitive Social A Simple Forum Platform ' + \
+        ' (type help for a list of options.)'
     prompt = '(primfeed) '
     file = None
 
@@ -80,21 +83,18 @@ class MyInteractive (cmd.Cmd):
 
         print(arg)
 
-
-
     @docopt_cmd
     def do_comment(self, arg):
         """Usage: comment <postId> <title> <body>"""
 
         print(arg)
 
-
-
     def do_quit(self, arg):
         """Quits out of Interactive Mode."""
 
         print('Good Bye!')
         exit()
+
 
 opt = docopt(__doc__, sys.argv[1:])
 
