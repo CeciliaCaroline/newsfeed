@@ -10,8 +10,8 @@ def view_feed():
 
 
 def add_news():
-    title = input("Enter News Title  '': ")
-    body = input("Enter News  Body'': ")
+    title = input("Enter News Title  in single quotation marks: ")
+    body = input("Enter News  Body in single quotation marks :" )
     return requests.post(url('/posts'), json={
         'title': title,
         'body': body
@@ -19,8 +19,8 @@ def add_news():
 
 
 def comment():
-    postId = input("Enter News Feed Post Id Between '': ")
-    body = input("Enter News Feed Comment Between '': ")
+    postId = input("Enter News Feed Post Id in single quotation marks: ")
+    body = input("Enter News Feed Comment in single quotation marks: ")
     return requests.post(url('/comments'), json={
         "body": body,
         "postId": postId
