@@ -9,9 +9,9 @@ def view_feed():
     print(resp.content)
 
 
-def add_news():
-    title = input("Enter News Title  in single quotation marks: ")
-    body = input("Enter News  Body in single quotation marks :" )
+def post_news():
+    title = input("Insert News Feed Title in singe quotation: ")
+    body = input("Insert News Feed Body in single quotation: ")
     return requests.post(url('/posts'), json={
         'title': title,
         'body': body
@@ -19,8 +19,8 @@ def add_news():
 
 
 def comment():
-    postId = input("Enter News Feed Post Id in single quotation marks: ")
-    body = input("Enter News Feed Comment in single quotation marks: ")
+    postId = input("Insert News Feed Post Id in single quotation: ")
+    body = input("Insert News Feed Comment in single quotation: ")
     return requests.post(url('/comments'), json={
         "body": body,
         "postId": postId
@@ -30,12 +30,12 @@ def comment():
 def display_menu():
     print("")
     print("----------------------------------------")
-    print("Welcome To The TEAM 1 NEWS APP ! :")
+    print("**** Team 1 NEWS FEED****** :")
     print("")
     print("Select An Option")
     print("")
     print("1. View News Feeds")
-    print("2. Post A News Feed")
+    print("2. Add A News Feed")
     print("3. Comment On News Feed")
     print("")
 
@@ -49,9 +49,9 @@ def get_menu_choice():
             if 0 <= choice <= 4:
                 option_valid = True
             else:
-                print ("Please Re-Enter a valid option")
+                print ("Please Enter a valid option")
         except ValueError:
-            print ("Please Re-Enter a valid option")
+            print ("Please Enter a valid option")
         return choice
 
 
@@ -65,14 +65,13 @@ def main():
         if option == 1:
             view_feed()
         elif option == 2:
-            add_news()
+            post_news()
         elif option == 3:
             comment()
             print("")
         elif option == 0:
             no_exit = False
-            print ("Thank you")
-            print ("")
+            print("******* Team 1 NEWS APP ************")
 
 if __name__ == '__main__':
     main()
