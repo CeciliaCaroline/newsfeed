@@ -77,3 +77,10 @@ class MyInteractive (cmd.Cmd):
 
         print('Good Bye!')
         exit()
+
+opt = docopt(__doc__, sys.argv[1:])
+
+if opt['--interactive']:
+    MyInteractive().cmdloop()
+
+print(opt)
