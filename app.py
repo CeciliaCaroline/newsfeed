@@ -13,3 +13,7 @@ Options:
     -i, --interactive  Interactive Mode
     -h, --help  Show this screen and exit.
 """
+
+import sys
+import cmd
+from docopt import docopt, DocoptExit
