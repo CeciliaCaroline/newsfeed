@@ -1,10 +1,11 @@
-#!/usr/bin/env python
+
 """
 This example uses docopt with the built in cmd module to demonstrate an
 interactive command application.
 Usage:
     newsfeed.py view_feed
-    newsfeed.py add_post <title> <body>
+    newsfeed.py primfeed_post <title> <body>
+    newsfeed.py primfeed_comment <postId> <title> <body>
     newsfeed.py (-i | --interactive)
     newsfeed.py (-h | --help | --version)
 Options:
@@ -76,11 +77,28 @@ class MyInteractive(cmd.Cmd):
 
     @docopt_cmd
     def do_primfeed_post(self, arg):
-        pass
+        """Usage: primfeed_post <title> <body>"""
+        title = arg['<title>']
+        body = arg['<body>']
+        data = {"title": title, "body": body}
+        get_url = "http://34.207.10.230:3000/posts"
+        response = requests.post(get_url, data=data)
+        if response.status_code == 201:
+            print('Post has been added')
+            print('********************************')
 
     @docopt_cmd
     def do_primfeed_comment(self, arg):
-        pass
+        """Usage: primfeed_comment <postId> <title> <body>"""
+        postId = arg['<postId>']
+        title = arg['<title>']
+        body = arg['<body>']
+        data = {"title": title, "body": body, "postId": postId}
+        get_url = "http://34.207.10.230:3000/comments"
+        response = requests.post(get_url, data=data)
+        if response.status_code == 201:
+            print('Comment has been added')
+            print('********************************')
 
     def do_quit(self, arg):
         """Quits out of Interactive Mode."""
