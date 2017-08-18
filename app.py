@@ -6,6 +6,8 @@ Usage:
     primfeed view_feed
     primfeed post <title> <body>
     primfeed comment <postId> <title> <body>
+    primfeed add_user <userId> <email>
+    primfeed get_user
     primfeed (-i | --interactive)
     primfeed (-h | --help | --version)
 
@@ -67,10 +69,26 @@ class MyInteractive (cmd.Cmd):
         print(arg)
 
     @docopt_cmd
+    def do_add_user(self, arg):
+        """Usage: add_user <userId> <email>"""
+
+        print(arg)
+
+    @docopt_cmd
+    def do_get_user(self, arg):
+        """Usage: get_user"""
+
+        print(arg)
+
+
+
+    @docopt_cmd
     def do_comment(self, arg):
         """Usage: comment <postId> <title> <body>"""
 
         print(arg)
+
+
 
     def do_quit(self, arg):
         """Quits out of Interactive Mode."""
