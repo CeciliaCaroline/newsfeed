@@ -6,7 +6,6 @@ class Test_Feed(unittest.TestCase):
 		self.foo = Feed()
         	self.failUnlessRaises(IndexError, foo.feed_is_invalid, '')
         	self.failUnlessRaises(TypeError, foo.feed_is_invalid, None)
-        	self.failUnlessRaises(TypeError, foo.feed_is_invalid, 234)
 
 	def view_feed(self):
 	"""test to make sure feed is displayed as string"""
