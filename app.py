@@ -5,7 +5,9 @@ The  NewsFeeds Program.
 Usage:
     primfeed view_feed
     primfeed post <title> <body>
-    primfeed comment <postId> <title> <body>
+    primfeed add_comment <commentId> <body>
+    primfeed viewcomment
+    update_comment update_comment
     primfeed add_user <userId> <email>
     primfeed get_user
     primfeed (-i | --interactive)
@@ -84,8 +86,20 @@ class MyInteractive (cmd.Cmd):
         print(arg)
 
     @docopt_cmd
-    def do_comment(self, arg):
-        """Usage: comment <postId> <title> <body>"""
+    def do_add_comment(self, arg):
+        """Usage: add_comment <commentId> <body>"""
+
+        print(arg)
+
+    @docopt_cmd
+    def do_viewcomments(self, arg):
+        """Usage: viewcomment"""
+
+        print(arg)
+
+    @docopt_cmd
+    def do_update_comments(self, arg):
+        """Usage: update_comment"""
 
         print(arg)
 
